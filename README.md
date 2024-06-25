@@ -20,15 +20,9 @@ Matplotlib
 # Dataset
 The dataset used for this project should be organized in the following structure:
 
-Plant Disease Data/
-├── train/
-│   ├── class1/
-│   ├── class2/
-│   └── ...
-└── valid/
-    ├── class1/
-    ├── class2/
-    └── ...
+![image](https://github.com/Kavin302004/Leaf_disease_Detection/assets/140266232/390e81b1-1b8f-48c4-9e42-25e98cb5d350)
+
+
 train/ directory contains the training images, categorized by disease type.
 valid/ directory contains the validation images, also categorized by disease type.
 
