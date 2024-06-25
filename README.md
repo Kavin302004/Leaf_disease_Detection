@@ -1,8 +1,8 @@
-#Plant Disease Detection using InceptionV3
+# Plant Disease Detection using InceptionV3
 
 This repository contains a project for detecting plant diseases using a convolutional neural network (CNN) based on the InceptionV3 architecture. The goal is to classify images of plant leaves into different categories of diseases.
 
-#Table of Contents
+# Table of Contents
 Installation
 Dataset
 Model Architecture
@@ -11,12 +11,13 @@ Evaluation
 Usage
 Results
 
-#Ensure you have the following libraries installed:
+# Ensure you have the following libraries installed:
 
 TensorFlow
 NumPy
 Matplotlib
-Dataset
+
+# Dataset
 The dataset used for this project should be organized in the following structure:
 
 Plant Disease Data/
@@ -30,7 +31,8 @@ Plant Disease Data/
     └── ...
 train/ directory contains the training images, categorized by disease type.
 valid/ directory contains the validation images, also categorized by disease type.
-#Model Architecture
+
+# Model Architecture
 The model is based on the InceptionV3 architecture, pre-trained on ImageNet. We add a few layers on top to adapt it to our classification task.
 
 from tensorflow.keras.applications.inception_v3 import InceptionV3
@@ -46,7 +48,8 @@ for layer in inception.layers:
 x = Flatten()(inception.output)
 prediction = Dense(len(folders), activation='softmax')(x)
 model = Model(inputs=inception.input, outputs=prediction)
-Training
+
+# Training
 To train the model, run the following script:
 
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -60,7 +63,7 @@ test_set = test_datagen.flow_from_directory('Plant Disease Data/valid', target_s
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 r = model.fit(training_set, validation_data=test_set, epochs=30, steps_per_epoch=len(training_set), validation_steps=len(test_set))
-#Evaluation
+# Evaluation
 To evaluate the model, use the following code:
 
 
@@ -71,14 +74,16 @@ plt.plot(r.history['loss'], label='train loss')
 plt.plot(r.history['val_loss'], label='val loss')
 plt.legend()
 plt.show()
+![image](https://github.com/Kavin302004/Leaf_disease_Detection/assets/140266232/a9fd35bb-e2f4-4e34-bb18-d6093d89dcd8)
 
 # Plot the accuracy
 plt.plot(r.history['accuracy'], label='train acc')
 plt.plot(r.history['val_accuracy'], label='val acc')
 plt.legend()
 plt.show()
+![image](https://github.com/Kavin302004/Leaf_disease_Detection/assets/140266232/a1a0bee2-4839-4d96-8fb1-98c447e50d56)
 
-#Usage
+# Usage
 To use the trained model for prediction, run the following code:
 
 from tensorflow.keras.models import load_model
@@ -94,5 +99,5 @@ pred = model.predict(x)
 pred_class = np.argmax(pred, axis=1)
 print(pred_class)
 
-#Results
+# Results
 The results of the training and validation can be visualized through the loss and accuracy plots. The model's predictions can be compared against the actual classes to evaluate its performance.
