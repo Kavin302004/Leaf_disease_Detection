@@ -3,13 +3,13 @@
 This repository contains a project for detecting plant diseases using a convolutional neural network (CNN) based on the InceptionV3 architecture. The goal is to classify images of plant leaves into different categories of diseases.
 
 # Table of Contents
-Installation
-Dataset
-Model Architecture
-Training
-Evaluation
-Usage
-Results
+1.Installation
+2.Dataset
+3.Model Architecture
+4.Training
+5.Evaluation
+6.Usage
+7.Results
 
 # Ensure you have the following libraries installed:
 
